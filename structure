@@ -1,0 +1,19 @@
+rtms_project/
+│
+├── main.py
+├── rtms/
+│   ├── __init__.py
+│   ├── ai_system.py
+│   ├── validation.py
+│   ├── simulation.py
+│   ├── security.py
+│   ├── logging_config.py
+│   ├── database.py
+│   └── utils.py
+├── config/
+│   ├── config.json
+├── data/
+│   └── generated_passwords.json
+├── logs/
+│   └── rtms.log
+└── README.md
