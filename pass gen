@@ -1,0 +1,38 @@
+import hashlib
+import random
+import string
+import uuid
+
+# Store previously generated passwords
+generated_passwords = set()
+
+def generate_random_string(length):
+    """Generates a random string of the specified length using letters, digits, and punctuation."""
+    characters = string.ascii_letters + string.digits + string.punctuation
+    return ''.join(random.choice(characters) for _ in range(length))
+
+def hash_element(element):
+    """Hashes a given element to create a consistent but unique base."""
+    return hashlib.sha256(element.encode()).hexdigest()
+
+def create_unique_password():
+    """Generates a secure password that has never been made before."""
+    while True:
+        # Use uncertain elements like a drop of water or random UUID
+        random_element = str(uuid.uuid4())
+        drop_of_water = "A drop of water"
+
+        # Hash these elements
+        base = hash_element(random_element + drop_of_water)
+
+        # Combine hashed base with a random string to create the password
+        password = base[:10] + generate_random_string(10)
+
+        # Ensure the password has never been generated before
+        if password not in generated_passwords:
+            generated_passwords.add(password)
+            return password
+
+# Example usage
+for _ in range(5):
+    print(create_unique_password())
