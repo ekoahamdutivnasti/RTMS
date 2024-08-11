@@ -1,0 +1,4 @@
+{
+    "logging_level": "INFO",
+    "database": "rtms.db"
+}
